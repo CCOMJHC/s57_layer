@@ -474,7 +474,7 @@ void GridCreationContext::rasterize(grid_map::GridMap& grid_map, OGRGeometry* ge
     {
       OGRLineString* lineString = geometry->toLineString();
       std::vector<MapPoint> lines;
-      for(auto p: *lineString)
+      for(auto& p: *lineString)
       {
         MapPoint mp;
         if(llToMap(p.getY(), p.getX(), mp.x, mp.y))
@@ -518,7 +518,7 @@ void GridCreationContext::rasterize(grid_map::GridMap& grid_map, OGRGeometry* ge
         ROS_DEBUG_STREAM("null exterior ring");
       else
       {
-        for(auto p: er)
+        for(auto& p: er)
         {
           MapPoint wp;
           if(llToMap(p.getY(), p.getX(), wp.x, wp.y))
@@ -530,7 +530,7 @@ void GridCreationContext::rasterize(grid_map::GridMap& grid_map, OGRGeometry* ge
         for(int i = 0; i < polygon->getNumInteriorRings(); i++)
         {
           rings.push_back(std::vector<MapPoint>());
-          for(auto p: polygon->getInteriorRing(i))
+          for(auto& p: polygon->getInteriorRing(i))
           {
             MapPoint wp;
             if(llToMap(p.getX(), p.getY(), wp.x, wp.y))

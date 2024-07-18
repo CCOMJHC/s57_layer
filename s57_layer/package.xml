@@ -18,6 +18,8 @@
   <depend>pluginlib</depend>
   <depend>roscpp</depend>
   <depend>geometry_msgs</depend>
+  <depend>s57_grids</depend> <!--For iso8211 lib-->
+  <depend>s57_msgs</depend>
   <depend>tf2_geometry_msgs</depend>
 
   <export>

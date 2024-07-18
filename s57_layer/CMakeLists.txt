@@ -7,6 +7,8 @@ find_package(catkin REQUIRED COMPONENTS
     pluginlib
     roscpp
     geometry_msgs
+    s57_grids
+    s57_msgs
     tf2_geometry_msgs
 )
 
@@ -19,6 +21,8 @@ catkin_package(
         pluginlib
         roscpp
         geometry_msgs
+        s57_grids
+        s57_msgs
         tf2_geometry_msgs
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}

@@ -491,7 +491,7 @@ void S57Dataset::rasterize(costmap_2d::Costmap2D& map, OGRGeometry* geometry, S5
     {
       OGRLineString* lineString = geometry->toLineString();
       std::vector<WorldPoint> lines;
-      for(auto p: *lineString)
+      for(auto& p: *lineString)
       {
         WorldPoint wp;
         if(layer.llToWorld(p.getY(), p.getX(), wp.x, wp.y))
@@ -559,7 +559,7 @@ void S57Dataset::rasterize(costmap_2d::Costmap2D& map, OGRGeometry* geometry, S5
         ROS_WARN_STREAM("null exterior ring");
       else
       {
-        for(auto p: er)
+        for(auto& p: er)
         {
           WorldPoint wp;
           if(layer.llToWorld(p.getY(), p.getX(), wp.x, wp.y))
@@ -570,7 +570,7 @@ void S57Dataset::rasterize(costmap_2d::Costmap2D& map, OGRGeometry* geometry, S5
         for(int i = 0; i < polygon->getNumInteriorRings(); i++)
         {
           rings.push_back(std::vector<WorldPoint>());
-          for(auto p: polygon->getInteriorRing(i))
+          for(auto& p: polygon->getInteriorRing(i))
           {
             WorldPoint wp;
             if(layer.llToWorld(p.getX(), p.getY(), wp.x, wp.y))

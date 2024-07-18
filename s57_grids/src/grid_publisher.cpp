@@ -6,6 +6,7 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <nav_msgs/OccupancyGrid.h>
 #include "ogrsf_frmts.h"
+#include <thread>
 
 namespace s57_grids
 {
